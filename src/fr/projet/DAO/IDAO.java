@@ -1,9 +1,9 @@
-package DAO;
+package fr.projet.DAO;
 
 import java.util.List;
 
 	
-	public interface DAO <T, I>
+	public interface IDAO <T, I>
 	{
 		public List<T> findAll();
 		public T find(I id);

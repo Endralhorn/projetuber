@@ -1,4 +1,4 @@
-package DAO;
+package fr.projet.DAO;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import fr.projet.model.Commentaire;
 
 @Repository
 
-public class CommentaireDAO implements DAO<Commentaire, String> {
+public class CommentaireDAO implements IDAO<Commentaire, String> {
 	
 	@PersistenceContext
 	private EntityManager em;

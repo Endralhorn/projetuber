@@ -12,7 +12,7 @@
 	<context:annotation-config />
 
 	<!-- On indique quel(s) package(s) sont concernés par cette configuration par annotation -->
-	<context:component-scan base-package="controller" />
+	<context:component-scan base-package="fr.projet.controller" />
 
 
 	<!-- On active la délégation des requêtes vers les contrôleurs -->
