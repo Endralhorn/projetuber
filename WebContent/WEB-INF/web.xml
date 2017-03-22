@@ -9,4 +9,35 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>/WEB-INF/application-context.xml</param-value>
+</context-param>
+
+<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
+<!-- Déclaration de la Servlet DispatcherServlet (String MVC) -->
+<servlet>
+	<servlet-name>dispatcher</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+	<!-- On utilise le fichier de configuration dispatcher-context.xml -->
+	<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/dispatcher-context.xml</param-value>
+	</init-param>
+
+	<load-on-startup>1</load-on-startup>
+</servlet>
+
+
+<!-- Mapping de dispatcher sur toutes les ressources -->
+<servlet-mapping>
+	<servlet-name>dispatcher</servlet-name>
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
+  
 </web-app>
