@@ -28,7 +28,7 @@
 	<!-- On crée un entityManagerFactory local à partir de la dataSource -->
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="model, DAO" />
+		<property name="packagesToScan" value="fr.projet.model, DAO" />
 
 		<!-- On précise le provider ... -->
 		<property name="jpaVendorAdapter">
