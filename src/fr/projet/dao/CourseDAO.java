@@ -4,36 +4,34 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import fr.projet.model.Commentaire;
+import fr.projet.model.Course;
 
 @Repository
 @Transactional
-public class CommentaireDAO extends IDAO<Commentaire> {
-	
+public class CourseDAO extends IDAO<Course>{
+
 	@PersistenceContext
 	private EntityManager em;
-
+	
 	@Override
-	public Commentaire find(int id) {
-		return this.em.find(Commentaire.class, id);
+	public Course find(int id) {
+		return this.em.find(Course.class, id);
 	}
 
 	@Override
-	public List<Commentaire> findAll() {
-		return this.em.createQuery("SELECT c FROM Commentaire c", Commentaire.class).getResultList();
+	public List<Course> findAll() {
+		return this.em.createQuery("SELECT crs FROM Course crs", Course.class).getResultList();
 	}
 
 	@Override
-	public Commentaire save(Commentaire object) {
+	public Course save(Course object) {
 		return this.em.merge(object);
 	}
 
 	@Override
-	public boolean delete(Commentaire object) {
+	public boolean delete(Course object) {
 		try {
 			this.em.remove(this.em.merge(object));
 			return true;
@@ -41,8 +39,5 @@ public class CommentaireDAO extends IDAO<Commentaire> {
 			return false;
 		}
 	}
-
-	
-	
 
 }

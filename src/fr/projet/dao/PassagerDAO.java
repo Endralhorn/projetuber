@@ -7,33 +7,32 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import fr.projet.model.Commentaire;
+import fr.projet.model.Passager;
 
 @Repository
 @Transactional
-public class CommentaireDAO extends IDAO<Commentaire> {
-	
+public class PassagerDAO extends IDAO<Passager>{
+
 	@PersistenceContext
 	private EntityManager em;
-
+	
 	@Override
-	public Commentaire find(int id) {
-		return this.em.find(Commentaire.class, id);
+	public Passager find(int id) {
+		return this.em.find(Passager.class, id);
 	}
 
 	@Override
-	public List<Commentaire> findAll() {
-		return this.em.createQuery("SELECT c FROM Commentaire c", Commentaire.class).getResultList();
+	public List<Passager> findAll() {	
+		return this.em.createQuery("SELECT p FROM Passager p", Passager.class).getResultList();
 	}
 
 	@Override
-	public Commentaire save(Commentaire object) {
+	public Passager save(Passager object) {
 		return this.em.merge(object);
 	}
 
 	@Override
-	public boolean delete(Commentaire object) {
+	public boolean delete(Passager object) {
 		try {
 			this.em.remove(this.em.merge(object));
 			return true;
@@ -41,8 +40,5 @@ public class CommentaireDAO extends IDAO<Commentaire> {
 			return false;
 		}
 	}
-
-	
-	
 
 }

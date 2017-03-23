@@ -3,12 +3,12 @@ package fr.projet.dao;
 import java.util.List;
 
 	
-	public interface IDAO <T, I>
-	{
-		public List<T> findAll();
-		public T find(I id);
-		public T save(T obj);
-		public void delete(T obj);
-	}
+public abstract class IDAO<T> {
+
+	public abstract T find(int id);
+	public abstract List<T> findAll();
+	public abstract T save(T object);
+	public abstract boolean delete(T object);
+}
 
 
