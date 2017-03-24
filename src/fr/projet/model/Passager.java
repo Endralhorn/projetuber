@@ -21,7 +21,7 @@ public class Passager extends Personne{
 	private String mailPaypal;
 
 	
-	@OneToMany(mappedBy="course", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="passager", fetch=FetchType.EAGER)
 	private List<Course> courses;
 	
 	public String getMailPaypal() {

@@ -35,7 +35,7 @@ public class Conducteur extends Personne{
 	private String mailPaypal;
 
 	
-	@OneToMany(mappedBy="course", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="conducteur", fetch=FetchType.EAGER)
 	private List<Course> courses;
 	
 	public String getImmaVoiture() {
