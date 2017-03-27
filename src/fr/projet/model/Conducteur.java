@@ -34,7 +34,28 @@ public class Conducteur extends Personne{
 	@Column(name = "COND_MAILPAYPAL")
 	private String mailPaypal;
 
+	@Column(name = "COND_LONGITUDE")
+	private Double longitude;
 	
+	@Column(name = "COND_LATITUDE")
+	private Double latitude;
+	
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
 	@OneToMany(mappedBy="conducteur", fetch=FetchType.EAGER)
 	private List<Course> courses;
 	

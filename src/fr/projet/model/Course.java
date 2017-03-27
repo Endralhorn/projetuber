@@ -22,12 +22,6 @@ public class Course {
 	@Column(name="COUR_ID")
 	private int cour_id;
 	
-	public List<Commentaire> getCommentaires() {
-		return commentaires;
-	}
-
-
-
 
 	@Column(name="COUR_DEPART")
 	private String cour_depart;
@@ -36,7 +30,7 @@ public class Course {
 	private String cour_arrivee;
 	
 	@Column(name="COUR_VALIDATION")
-	private int cour_validation;
+	private boolean cour_validation;
 	
 	
 	@ManyToOne
@@ -50,6 +44,10 @@ public class Course {
 	
 	@OneToMany(mappedBy="course", fetch=FetchType.EAGER)
 	private List<Commentaire> commentaires;
+	
+	public List<Commentaire> getCommentaires() {
+		return commentaires;
+	}
 	
 	public void setCommentaires(List<Commentaire> commentaires) {
 		this.commentaires = commentaires;
@@ -86,12 +84,12 @@ public class Course {
 	}
 
 
-	public int getCour_validation() {
+	public boolean getCour_validation() {
 		return cour_validation;
 	}
 
 
-	public void setCour_validation(int cour_validation) {
+	public void setCour_validation(boolean cour_validation) {
 		this.cour_validation = cour_validation;
 	}
 
