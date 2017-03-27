@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 
-<!-- On autorise la configuration par annotation (évitera de déclarer nos beans via ce fichier) -->
+<!-- On autori se la configuration par annotation (évitera de déclarer nos beans via ce fichier) -->
 	<context:annotation-config />
 
 	<!-- On active les annotations pour ces packages -->
