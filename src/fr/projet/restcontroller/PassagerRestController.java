@@ -50,7 +50,7 @@ public class PassagerRestController {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	@ResponseBody
-	public ResponseEntity<Passager> savePassager(
+	public ResponseEntity<Passager> modifierPassager(
 			@RequestBody Passager passager,
 			@PathVariable int id){
 		passager.setId_personne(id);
@@ -76,6 +76,7 @@ public class PassagerRestController {
 		Course myCourse = this.courseDAO.find(idCourse);
 		if (myCourse.getPassager().getId_personne() != myPassager.getId_personne())
 			return new ResponseEntity<Passager>(HttpStatus.FORBIDDEN);
+		
 		myCourse.setCour_validation(true);
 		this.courseDAO.save(myCourse);
 		

@@ -7,8 +7,11 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+		<config>WebContent/WEB-INF/api-context.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>WebContent/WEB-INF/application-context.xml</config>
+		<config>WebContent/WEB-INF/dispatcher-context.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
