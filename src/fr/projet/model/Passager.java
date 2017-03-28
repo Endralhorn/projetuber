@@ -20,9 +20,32 @@ public class Passager extends Personne{
 	@Column(name = "PAS_MAILPAYPAL")
 	private String mailPaypal;
 
+	@Column(name = "COND_LONGITUDE")
+	private Double longitude;
 	
+	@Column(name = "COND_LATITUDE")
+	private Double latitude;
+	
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
 	@OneToMany(mappedBy="passager", fetch=FetchType.EAGER)
 	private List<Course> courses;
+	
+	
 	
 	public String getMailPaypal() {
 		return mailPaypal;
