@@ -1,5 +1,6 @@
 package fr.projet.model;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -104,12 +105,12 @@ public class Course {
 	}
 
 
-	public int getCour_date() {
+	public Date getCour_date() {
 		return cour_date;
 	}
 
 
-	public void setCour_date(int cour_date) {
+	public void setCour_date(Date cour_date) {
 		this.cour_date = cour_date;
 	}
 
@@ -138,7 +139,7 @@ public class Course {
 	private int cour_statut;
 	
 	@Column(name="COUR_DATE")
-	private int cour_date;
+	private Date cour_date;
 	
 	
 	

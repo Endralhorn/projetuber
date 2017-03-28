@@ -19,7 +19,7 @@ import fr.projet.dao.CourseDAO;
 import fr.projet.model.Commentaire;
 import fr.projet.model.Conducteur;
 import fr.projet.model.Course;
-import fr.projet.model.Passager;
+
 
 
 @RestController
@@ -73,20 +73,21 @@ public class ConducteurRestController {
 	}
 	
 	
-	@RequestMapping(value="/{id}/course/valider/{idCourse}", method=RequestMethod.PUT)
-	@ResponseBody
-	public ResponseEntity<Conducteur> validerCommande(@PathVariable int id, @PathVariable int idCourse) {
-		Conducteur myConducteur = this.conducteurDAO.find(id);
-		Course myCourse = this.courseDAO.find(idCourse);
-		if (myCourse.getConducteur().getId_personne() != myConducteur.getId_personne())
-			return new ResponseEntity<Conducteur>(HttpStatus.FORBIDDEN);
-		
-		myCourse.setConducteur(myConducteur);
-		this.courseDAO.save(myCourse);
-		
-		return new ResponseEntity<Conducteur>(myConducteur, HttpStatus.OK);	
-		
-	}
+//	@RequestMapping(value="/{id}/course/{idCourse}/valider", method=RequestMethod.PUT)
+//	@ResponseBody
+//	public ResponseEntity<Conducteur> validerCommande(@PathVariable int id, @PathVariable int idCourse) {
+//		Conducteur myConducteur = this.conducteurDAO.find(id);
+//		Course myCourse = this.courseDAO.find(idCourse);
+//		
+//		if (myCourse.getConducteur().getId_personne() != myConducteur.getId_personne())
+//			return new ResponseEntity<Conducteur>(HttpStatus.FORBIDDEN);
+//		
+//		myCourse.setConducteur(myConducteur);
+//		this.courseDAO.save(myCourse);
+//		
+//		return new ResponseEntity<Conducteur>(myConducteur, HttpStatus.OK);	
+//		
+//	}
 	
 	@RequestMapping(value="/{id}/commentaire/commenter/{idCommentaire}", method=RequestMethod.PUT)
 	@ResponseBody
