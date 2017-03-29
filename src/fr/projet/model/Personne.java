@@ -38,11 +38,29 @@ public class Personne implements Serializable {
 	@Column(name="PER_EMAIL")
 	private String eMail;
 	
+	@Column(name="PER_USERNAME")
+	private String username;
+	
+	@Column(name="PER_MOTPASS")
+	private String motPass;
+	
 	@Column(name="PER_DATENAISSANCE")
 	private Date dateNaissance = new Date();
 	
 	
 	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getMotPass() {
+		return motPass;
+	}
+	public void setMotPass(String motPass) {
+		this.motPass = motPass;
+	}
 	public int getId_personne() {
 		return id_personne;
 	}
