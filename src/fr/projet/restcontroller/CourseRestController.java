@@ -1,5 +1,8 @@
 package fr.projet.restcontroller;
 
+
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,14 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.projet.dao.ConducteurDAO;
 import fr.projet.dao.CourseDAO;
-import fr.projet.model.Conducteur;
 import fr.projet.model.Course;
-import fr.projet.model.Passager;
+
 
 @RestController
 @RequestMapping("/course")
@@ -27,10 +30,17 @@ public class CourseRestController {
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<Course> addCourse(@RequestBody Course course){
-		course = this.courseDAO.save(course);
+	public ResponseEntity<Course> addCourse(@RequestParam int idPassager, @RequestParam String adresseDebut, @RequestParam String adresseFin){
+		Course myCourse = new Course();
 		
-		return new ResponseEntity<Course>(course, HttpStatus.OK); 
+		myCourse.setCour_date(new Date());
+		myCourse.setCour_arrivee(adresseFin);
+		myCourse.setCour_depart(adresseDebut);
+
+		
+		myCourse = this.courseDAO.save(myCourse);
+		
+		return new ResponseEntity<Course>(myCourse, HttpStatus.OK); 
 	}
 	
 	
