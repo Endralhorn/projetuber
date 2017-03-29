@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.projet.dao.CommentaireDAO;
+import fr.projet.dao.ConducteurDAO;
 import fr.projet.dao.CourseDAO;
 import fr.projet.dao.PassagerDAO;
 import fr.projet.model.Commentaire;
+import fr.projet.model.Conducteur;
 import fr.projet.model.Course;
 import fr.projet.model.Passager;
 
@@ -30,7 +32,8 @@ public class PassagerRestController {
 	private CourseDAO courseDAO;
 	@Autowired
 	private CommentaireDAO commentaireDAO;
-	
+	@Autowired
+	private ConducteurDAO conducteurDAO;
 	
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
@@ -69,18 +72,20 @@ public class PassagerRestController {
 	}
 	
 	
-	@RequestMapping(value="/{id}/course/valider/{idCourse}", method=RequestMethod.PUT)
+	@RequestMapping(value="/{id}/course/{idCourse}/choisirConducteur/{idConducteur}", method=RequestMethod.PUT)
 	@ResponseBody
-	public ResponseEntity<Passager> validerCourse(@PathVariable int id, @PathVariable int idCourse) {
+	public ResponseEntity<Course> validerCourse(@PathVariable int id, @PathVariable int idCourse, @PathVariable int idConducteur) {
 		Passager myPassager= this.passagerDAO.find(id);
 		Course myCourse = this.courseDAO.find(idCourse);
-		if (myCourse.getPassager().getId_personne() != myPassager.getId_personne())
-			return new ResponseEntity<Passager>(HttpStatus.FORBIDDEN);
+		Conducteur myConducteur = this.conducteurDAO.find(idConducteur);
 		
-		myCourse.setCour_validation(true);
+		if (myCourse.getPassager().getId_personne() != myPassager.getId_personne())
+			return new ResponseEntity<Course>(HttpStatus.FORBIDDEN);
+		
+		myCourse.setConducteur(myConducteur);;
 		this.courseDAO.save(myCourse);
 		
-		return new ResponseEntity<Passager>(myPassager, HttpStatus.OK);
+		return new ResponseEntity<Course>(myCourse, HttpStatus.OK);
 	}
 	
 	

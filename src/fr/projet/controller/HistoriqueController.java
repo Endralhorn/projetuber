@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class HomeController {
+public class HistoriqueController {
 
-	@RequestMapping(value = "/map", method=RequestMethod.GET)
-	public String home(){
-	
-		return "map";
+	@RequestMapping(value = "/historique", method = RequestMethod.GET)
+	public String login() {
+		return "historique";
+
 	}
 }
