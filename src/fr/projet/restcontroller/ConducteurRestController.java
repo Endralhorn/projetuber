@@ -45,8 +45,13 @@ public class ConducteurRestController {
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<Conducteur> afficherConducteur(@RequestBody Conducteur conducteur){
-		conducteur = this.conducteurDAO.find(conducteur.getId_personne());
+	//public ResponseEntity<Conducteur> afficherConducteur(@RequestBody Conducteur conducteur){
+	public ResponseEntity<Conducteur> afficherConducteur(@RequestParam(value="id", required=false) int id
+				){
+		//Conducteur conducteur = this.conducteurDAO.find(conducteur.getId_personne());
+		System.out.println("dans afficherConducteur, id= "+id);
+		Conducteur conducteur = this.conducteurDAO.find(id);
+		System.out.println("apres appel find");
 		
 		return new ResponseEntity<Conducteur>(conducteur, HttpStatus.OK); 
 	}

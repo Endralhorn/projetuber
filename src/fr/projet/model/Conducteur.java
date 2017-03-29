@@ -3,6 +3,7 @@ package fr.projet.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -10,7 +11,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Conducteur")
+@DiscriminatorValue("Conducteur")
 @PrimaryKeyJoinColumn(name="COND_ID", referencedColumnName="PER_ID")
 public class Conducteur extends Personne{
 
@@ -29,7 +30,7 @@ public class Conducteur extends Personne{
 	}
 
 	@Column(name = "COND_COEFFICIENT")
-	private String coefficient;
+	private int coefficient;
 	
 	@Column(name = "COND_MAILPAYPAL")
 	private String mailPaypal;
@@ -67,11 +68,11 @@ public class Conducteur extends Personne{
 		this.immaVoiture = immaVoiture;
 	}
 
-	public String getCoefficient() {
+	public int getCoefficient() {
 		return coefficient;
 	}
 
-	public void setCoefficient(String coefficient) {
+	public void setCoefficient(int coefficient) {
 		this.coefficient = coefficient;
 	}
 
