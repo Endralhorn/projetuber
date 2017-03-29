@@ -11,11 +11,11 @@ import fr.projet.model.Conducteur;
 
 @Repository
 @Transactional
-public class ConducteurDAO extends IDAO<Conducteur>{
+public class ConducteurDAO extends IDAO<Conducteur> {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Conducteur find(int id) {
 		return this.em.find(Conducteur.class, id);
@@ -24,11 +24,11 @@ public class ConducteurDAO extends IDAO<Conducteur>{
 	@Override
 	public List<Conducteur> findAll() {
 		return this.em.createQuery("SELECT cd FROM Conducteur cd", Conducteur.class).getResultList();
-	
+
 	}
 
 	@Override
-	public Conducteur save(Conducteur object) {		
+	public Conducteur save(Conducteur object) {
 		return this.em.merge(object);
 	}
 
@@ -40,6 +40,14 @@ public class ConducteurDAO extends IDAO<Conducteur>{
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	public Conducteur login(String username, String password) {
+
+		return this.em
+				.createQuery("FROM Conducteur WHERE PER_USERNAME=:username AND PER_MOTPASS=:password ",Conducteur.class)
+				.setParameter("username", username).setParameter("password", password).getSingleResult();
+
 	}
 
 }

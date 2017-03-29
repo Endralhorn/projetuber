@@ -7,6 +7,8 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import fr.projet.model.Conducteur;
 import fr.projet.model.Passager;
 
 @Repository
@@ -39,6 +41,14 @@ public class PassagerDAO extends IDAO<Passager>{
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	
+	public Passager login(String username, String password) {
+
+		return this.em
+				.createQuery("FROM Passager WHERE PER_USERNAME=:username AND PER_MOTPASS=:password ",Passager.class)
+				.setParameter("username", username).setParameter("password", password).getSingleResult();
+
 	}
 
 }
