@@ -5,7 +5,7 @@
 
 
 <script>
-	var isPassenger = true;
+	var isPassenger = FALSE;
 
 	$(document).ready(function(){
 		if (isPassenger){
@@ -104,7 +104,7 @@
 
 			<script>
 				function myMap() {
-	 				var currUser = new google.maps.LatLng(50.6056026,3.1564853999999998);
+	 				var currUser = new google.maps.LatLng(50.6056026,3.1564853999999998) ;
 	 				var users = [new google.maps.LatLng(50.60,3.156),
 				 		new google.maps.LatLng(50.606,3.15),
 				 		new google.maps.LatLng(50.603,3.154) ];
@@ -115,7 +115,8 @@
 	  var mapOptions = {center: myCenter, zoom: 13};
 	  var map = new google.maps.Map(mapCanvas, mapOptions);
 
-	  var marker_user = new google.maps.Marker({position:myCenter, map: map});
+	  var marker_user = new google.maps.Marker({position:myCenter, animation: google.maps.Animation.BOUNCE, map: map});
+
 
 
 	 var marker, i;
@@ -125,16 +126,11 @@
 	    	marker = new google.maps.Marker({
 				position: users[i],	
 				map: map
+
 			});
 		}
 
 
-	  google.maps.event.addListener(marker,'click',function() {
-	    var infowindow = new google.maps.InfoWindow({
-	      content:"Profil, Note, Prix " //a modifier avec lien en affichage direct interractif
-	    });
-	  infowindow.open(map,marker);
-	  });
 
 	}
 	</script>
