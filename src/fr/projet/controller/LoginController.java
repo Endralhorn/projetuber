@@ -18,6 +18,7 @@ public class LoginController {
 
 	@Autowired
 	private ConducteurDAO conducteurDAO;
+	@Autowired
 	private PassagerDAO passagerDAO;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)

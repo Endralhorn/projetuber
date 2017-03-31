@@ -1,18 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="eco.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/eco.css">
 <title>Ecotrajet</title>
 </head>
+
 <body>
+
 	<div class="eco">
-		<img src="eco.gif" width="600px">
+		<img src="${pageContext.request.contextPath}/resources/images/eco.gif" width="600px">
 	</div>
 	
 	<div class="login">
 
-		<img src="ecotrajet.jpg" width="300px">
+		<img src="${pageContext.request.contextPath}/resources/images/ecotrajet.jpg" width="300px">
 
 			<div align="center"><h1>Inscription</h1></div>
 
@@ -29,9 +33,6 @@
 		</form>
 
 	</div>
-
-
-
 
 
 	<script type="text/javascript"
